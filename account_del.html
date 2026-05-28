@@ -1,312 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DogePow - Delete Account</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DogePow - Delete Account</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-    html,body{
-      width:100%;
-      min-height:100%;
-      overflow-x:hidden;
-      background:#050816;
-      color:#fff;
-    }
+body{
+    background:#020617;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+    overflow:auto;
+}
 
-    body{
-      position:relative;
-      padding:25px 15px;
-      display:flex;
-      justify-content:center;
-    }
+.container{
+    width:100%;
+    max-width:700px;
+    background:linear-gradient(180deg,#07142c,#08101f);
+    border:1px solid rgba(0,255,170,0.15);
+    border-radius:28px;
+    padding:35px;
+    box-shadow:0 0 40px rgba(0,0,0,0.5);
+}
 
-    /* Background Glow */
+.logo{
+    text-align:center;
+    margin-bottom:25px;
+}
 
-    .bg1{
-      position:fixed;
-      width:450px;
-      height:450px;
-      background:radial-gradient(circle,#00ff95 0%,transparent 70%);
-      top:-180px;
-      left:-180px;
-      opacity:.12;
-      z-index:0;
-      pointer-events:none;
-    }
+.logo img{
+    width:90px;
+    height:90px;
+    border-radius:22px;
+}
 
-    .bg2{
-      position:fixed;
-      width:450px;
-      height:450px;
-      background:radial-gradient(circle,#8c3dff 0%,transparent 70%);
-      bottom:-180px;
-      right:-180px;
-      opacity:.12;
-      z-index:0;
-      pointer-events:none;
-    }
+h1{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:10px;
+    color:#ffffff;
+}
+
+.subtitle{
+    text-align:center;
+    color:#9fb0d0;
+    font-size:17px;
+    line-height:1.6;
+    margin-bottom:35px;
+}
+
+.card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:20px;
+    padding:24px;
+    margin-bottom:22px;
+}
+
+.card h2{
+    font-size:24px;
+    margin-bottom:18px;
+    color:#00e08a;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:12px;
+    color:#d6e2ff;
+    line-height:1.6;
+}
+
+.steps li{
+    margin-bottom:14px;
+}
+
+.warning{
+    background:rgba(255,0,70,0.08);
+    border:1px solid rgba(255,0,70,0.2);
+}
+
+.warning h2{
+    color:#ff4d6d;
+}
+
+.support{
+    text-align:center;
+    margin-top:25px;
+    color:#9fb0d0;
+    line-height:1.8;
+}
+
+.support a{
+    color:#00e08a;
+    text-decoration:none;
+}
+
+.footer{
+    margin-top:35px;
+    text-align:center;
+    color:#6f83a8;
+    font-size:14px;
+}
+
+@media(max-width:600px){
 
     .container{
-      width:100%;
-      max-width:760px;
-      position:relative;
-      z-index:2;
-    }
-
-    .card{
-      width:100%;
-      background:rgba(10,15,35,0.96);
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:28px;
-      padding:35px;
-      backdrop-filter:blur(10px);
-      box-shadow:0 0 40px rgba(0,0,0,0.45);
-    }
-
-    .top{
-      text-align:center;
-      margin-bottom:30px;
-    }
-
-    .logo{
-      width:95px;
-      height:95px;
-      border-radius:50%;
-      object-fit:cover;
-      margin-bottom:18px;
-      border:3px solid rgba(255,255,255,0.08);
-      box-shadow:0 0 25px rgba(255,200,0,0.25);
+        padding:22px;
+        border-radius:22px;
     }
 
     h1{
-      font-size:42px;
-      margin-bottom:10px;
-      background:linear-gradient(90deg,#ffffff,#00ff95);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+        font-size:30px;
     }
 
     .subtitle{
-      color:#b8bfd5;
-      font-size:17px;
-      line-height:1.7;
-    }
-
-    .section{
-      background:#0c1329;
-      border-radius:22px;
-      padding:24px;
-      margin-bottom:20px;
-      border:1px solid rgba(255,255,255,0.05);
-    }
-
-    .section h2{
-      color:#00ff95;
-      margin-bottom:15px;
-      font-size:22px;
-    }
-
-    .section p{
-      color:#d8dbe8;
-      line-height:1.8;
-      font-size:16px;
-    }
-
-    ul,ol{
-      padding-left:20px;
-    }
-
-    li{
-      margin-bottom:12px;
-      color:#d8dbe8;
-      line-height:1.7;
-      font-size:16px;
-    }
-
-    .support-box{
-      margin-top:10px;
-      background:linear-gradient(90deg,#8c3dff,#5c28ff);
-      border-radius:18px;
-      padding:18px;
-      text-align:center;
-      font-size:18px;
-      font-weight:bold;
-      word-break:break-word;
-    }
-
-    .support-box a{
-      color:white;
-      text-decoration:none;
-    }
-
-    .footer{
-      margin-top:25px;
-      text-align:center;
-      color:#8d94aa;
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    @media(max-width:768px){
-
-      body{
-        padding:15px 12px;
-      }
-
-      .card{
-        padding:22px;
-        border-radius:22px;
-      }
-
-      .logo{
-        width:82px;
-        height:82px;
-      }
-
-      h1{
-        font-size:34px;
-      }
-
-      .subtitle{
         font-size:15px;
-      }
-
-      .section{
-        padding:20px;
-      }
-
-      .section h2{
-        font-size:20px;
-      }
-
-      .section p,
-      li{
-        font-size:15px;
-      }
-
-      .support-box{
-        font-size:16px;
-      }
     }
 
-    @media(max-width:480px){
-
-      h1{
-        font-size:30px;
-      }
-
-      .card{
-        padding:18px;
-      }
-
-      .section{
-        padding:18px;
-      }
-
-      .logo{
-        width:74px;
-        height:74px;
-      }
+    .card h2{
+        font-size:21px;
     }
-
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <div class="bg1"></div>
-  <div class="bg2"></div>
+<div class="container">
 
-  <div class="container">
-
-    <div class="card">
-
-      <div class="top">
-
-        <!-- DogePow Logo -->
-        <img 
-          class="logo"
-          src="https://i.imgur.com/0y8Ftya.png"
-          alt="DogePow Logo"
-        >
-
-        <h1>DogePow</h1>
-
-        <p class="subtitle">
-          Account & Data Deletion Request
-        </p>
-
-      </div>
-
-      <div class="section">
-
-        <h2>Delete Account</h2>
-
-        <p>
-          Users can request permanent deletion of their DogePow account and associated data.
-        </p>
-
-      </div>
-
-      <div class="section">
-
-        <h2>Deleted Data Includes</h2>
-
-        <ul>
-          <li>Profile information</li>
-          <li>Wallet address</li>
-          <li>Rewards history</li>
-          <li>Mining progress</li>
-        </ul>
-
-      </div>
-
-      <div class="section">
-
-        <h2>Deletion Time</h2>
-
-        <p>
-          All data is permanently deleted immediately after confirmation and cannot be recovered.
-        </p>
-
-      </div>
-
-      <div class="section">
-
-        <h2>How To Request Deletion</h2>
-
-        <ol>
-          <li>Open the DogePow app</li>
-          <li>Go to Profile → Delete Account</li>
-          <li>Confirm your deletion request</li>
-        </ol>
-
-      </div>
-
-      <div class="support-box">
-        Support:
-        <br><br>
-
-        <a href="mailto:support@dogepow.xyz">
-          bristikhatu259@gmail.com
-        </a>
-      </div>
-
-      <div class="footer">
-        © 2026 DogePow. All rights reserved.
-      </div>
-
+    <div class="logo">
+        <!-- Replace with your DogePow logo -->
+        <img src="https://i.imgur.com/4M34hi2.png" alt="DogePow Logo">
     </div>
 
-  </div>
+    <h1>Delete Account</h1>
+
+    <p class="subtitle">
+        Users can request deletion of their DogePow account and associated data directly from the app.
+    </p>
+
+    <div class="card">
+        <h2>Data Scheduled for Deletion</h2>
+
+        <ul>
+            <li>Profile information</li>
+            <li>Wallet address</li>
+            <li>Rewards history</li>
+            <li>Mining progress</li>
+            <li>Subscription-related app data</li>
+        </ul>
+    </div>
+
+    <div class="card warning">
+        <h2>Important Information</h2>
+
+        <ul>
+            <li>
+                After submitting a deletion request, the account will be scheduled for permanent deletion after 30 days.
+            </li>
+
+            <li>
+                If you log back into your account within the 30-day period, the deletion request will be automatically canceled and your account will remain active.
+            </li>
+
+            <li>
+                Once the 30-day period is completed, all associated data will be permanently deleted and cannot be recovered.
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>How to Request Deletion</h2>
+
+        <ul class="steps">
+            <li>1. Open the DogePow app</li>
+            <li>2. Go to Profile > Delete Account</li>
+            <li>3. Confirm deletion request</li>
+        </ul>
+    </div>
+
+    <div class="support">
+        <p>Need help?</p>
+        <a href="mailto:support@dogepow.xyz">
+            support@dogepow.xyz
+        </a>
+    </div>
+
+    <div class="footer">
+        © 2026 DogePow. All rights reserved.
+    </div>
+
+</div>
 
 </body>
 </html>
